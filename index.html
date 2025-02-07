@@ -2,66 +2,88 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Disaster Management - Home</title>
-  <!-- Bootstrap CSS -->
-  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Animate.css for animations -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-  <!-- Leaflet CSS -->
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IDRP - Indian Disaster Response Portal - Navbar</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <link rel="stylesheet" href="index.css">
 </head>
 <body>
-  <!-- Navigation Bar -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-    <a class="navbar-brand" href="index.html">Disaster Management</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" 
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ml-auto">
-         <li class="nav-item active">
-           <a class="nav-link" href="index.html">Home</a>
-         </li>
-         <li class="nav-item">
-           <a class="nav-link" href="vigilance.html">Disaster Vigilance</a>
-         </li>
-         <li class="nav-item">
-           <a class="nav-link" href="report.html">Report</a>
-         </li>
-         <li class="nav-item">
-           <a class="nav-link" href="about.html">About Us</a>
-         </li>
-      </ul>
+  <nav class="navbar navbar-expand-lg navbar-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">IDRP - Indian Disaster Response Portal</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="vigilanceDropdown" role="button" data-toggle="dropdown">
+              Disaster Vigilance
+            </a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="#Live-Disaster-Map" id="Live-Disaster-Map">Live Disaster Map</a>
+              <a class="dropdown-item" href="#">Cyclone Paths & Forecasts</a>
+              <a class="dropdown-item" href="#">Preparedness & Response</a>
+            </div>
+          </li>
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="aboutDropdown" role="button" data-toggle="dropdown">
+              About Us
+            </a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="#">Our Mission</a>
+              <a class="dropdown-item" href="#">Our Database</a>
+              <a class="dropdown-item" href="#">Data Sources</a>
+              <a class="dropdown-item" href="#">Collaborators</a>
+              <a class="dropdown-item" href="#">How It Works</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <a href="#" class="btn report-button">Report Now</a>
     </div>
   </nav>
-  
-  <!-- Main Content Container -->
-  <div class="container">
-    <h2>Welcome to Disaster Management Portal</h2>
-    <p>Select a disaster type to see more details:</p>
-    <div class="form-group">
-      <label for="disasterSelect">Choose a Disaster:</label>
-      <select class="form-control" id="disasterSelect">
-        <option value="" disabled selected>Choose an option</option>
-        <option value="./flood/flood.html">Flood</option>
-        <option value="./tsunami/tsunami.html">Tsunami</option>
-        <option value="./earthquake/earthquake.html">Earthquake</option>
-        <option value="./landSlide/landslide.html">LandSlide</option>
-        <option value="./cyclone/cyclone.html">Cyclone</option>
-      </select>
+
+  <nav class="side-nav">
+    <ul class="side-nav-links">
+      <li>
+        <a href="#">
+          <i class="fas fa-map-marked-alt"></i>
+          Interactive Maps
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <div class="disaster-circles">
+    <div class="disaster-circle">
+      <a href="./earthquake/earthquake.html">Earthquake</a>
     </div>
-    <button id="submitBtn" class="btn btn-primary">Submit</button>
-    <!-- Map Div: Initially hidden -->
-    <div id="map" class="animate__animated"></div>
+    <div class="disaster-circle">
+      <a href="./flood/flood.html">Floods</a>
+    </div>
+    <div class="disaster-circle">
+      <a href="./tsunami/tsunami.html">Tsunami</a>
+    </div>
+    <div class="disaster-circle">
+      <a href="./cyclone/cyclone.html">Cyclones</a>
+    </div>
+    <div class="disaster-circle">
+      <a href="./landSlide/landslide.html">Landslides</a>
+    </div>
   </div>
-  
-  <!-- jQuery and Bootstrap JS -->
+
+  <div class="map-tooltip">
+    <h3>Interactive Disaster Map</h3>
+    <p>Click on the Interactive Maps button to explore disaster-specific information. Access detailed heat maps and data visualizations for various natural disasters affecting different regions of India.</p>
+    <p style="margin-top: 15px; font-style: italic; font-size: 0.9em;">Click to toggle the disaster options</p>
+  </div>
+  <script src="index.js"></script>
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
-  <!-- Leaflet JS -->
-  <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
-  <script src="index.js"></script>
 </body>
 </html>

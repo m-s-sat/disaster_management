@@ -9,22 +9,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
   <!-- Leaflet CSS -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
-  <style>
-    body {
-      background: #f8f9fa;
-    }
-    .navbar {
-      margin-bottom: 20px;
-    }
-    /* Map container style */
-    #map {
-      width: 100%;
-      height: 450px;
-      border: 2px solid #007bff;
-      display: none;
-      margin-top: 20px;
-    }
-  </style>
+  <link rel="stylesheet" href="index.css">
 </head>
 <body>
   <!-- Navigation Bar -->
@@ -77,18 +62,6 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
   <!-- Leaflet JS -->
   <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
-  
-  <script>
-    document.getElementById("submitBtn").addEventListener("click", function(){
-        let selectedPage = document.getElementById("disasterSelect").value;
-        if (selectedPage) {
-          document.body.classList.add("fade-out"); // Apply fade effect
-          window.location.href = selectedPage;
-        } 
-        else{
-          alert("Please select an option!");
-        }
-    });
-  </script>
+  <script src="index.js"></script>
 </body>
 </html>

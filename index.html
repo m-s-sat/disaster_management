@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Disaster Management - Home</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Animate.css for animations -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
+  <style>
+    body {
+      background: #f8f9fa;
+    }
+    .navbar {
+      margin-bottom: 20px;
+    }
+    /* Map container style */
+    #map {
+      width: 100%;
+      height: 450px;
+      border: 2px solid #007bff;
+      display: none;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <a class="navbar-brand" href="index.html">Disaster Management</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" 
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+         <li class="nav-item active">
+           <a class="nav-link" href="index.html">Home</a>
+         </li>
+         <li class="nav-item">
+           <a class="nav-link" href="vigilance.html">Disaster Vigilance</a>
+         </li>
+         <li class="nav-item">
+           <a class="nav-link" href="report.html">Report</a>
+         </li>
+         <li class="nav-item">
+           <a class="nav-link" href="about.html">About Us</a>
+         </li>
+      </ul>
+    </div>
+  </nav>
+  
+  <!-- Main Content Container -->
+  <div class="container">
+    <h2>Welcome to Disaster Management Portal</h2>
+    <p>Select a disaster type to see more details:</p>
+    <div class="form-group">
+      <label for="disasterSelect">Choose a Disaster:</label>
+      <select class="form-control" id="disasterSelect">
+        <option value="" disabled selected>Choose an option</option>
+        <option value="./flood/flood.html">Flood</option>
+        <option value="./tsunami/tsunami.html">Tsunami</option>
+        <option value="./earthquake/earthquake.html">Earthquake</option>
+        <option value="./landSlide/landslide.html">LandSlide</option>
+        <option value="./cyclone/cyclone.html">Cyclone</option>
+      </select>
+    </div>
+    <button id="submitBtn" class="btn btn-primary">Submit</button>
+    <!-- Map Div: Initially hidden -->
+    <div id="map" class="animate__animated"></div>
+  </div>
+  
+  <!-- jQuery and Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+  
+  <script>
+    document.getElementById("submitBtn").addEventListener("click", function(){
+        let selectedPage = document.getElementById("disasterSelect").value;
+        if (selectedPage) {
+          document.body.classList.add("fade-out"); // Apply fade effect
+          window.location.href = selectedPage;
+        } 
+        else{
+          alert("Please select an option!");
+        }
+    });
+  </script>
+</body>
+</html>
